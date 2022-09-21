@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float movement_speed;
-    public float rotation_speed;
+    [SerializeField] private float movement_speed;
+    [SerializeField] private float rotation_speed;
+    [SerializeField] private GameObject bullet;
     private float vertical;
     private float horizontal;
 
@@ -40,5 +41,11 @@ public class PlayerMovement : MonoBehaviour
         }
        
         transform.eulerAngles += new Vector3(0, 0, -horizontal) * Time.deltaTime * rotation_speed;
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Instantiate(bullet, transform.position, Quaternion.identity);
+        }
+        
     }
 }

@@ -11,7 +11,7 @@ public class Teleporter : MonoBehaviour
     void Start()
     {
         vertical = 5;
-        horizontal = 10;
+        horizontal = 9;
     }
 
     // Update is called once per frame
