@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -41,11 +40,12 @@ public class PlayerMovement : MonoBehaviour
         }
        
         transform.eulerAngles += new Vector3(0, 0, -horizontal) * Time.deltaTime * rotation_speed;
-
+        
         if (Input.GetButtonDown("Fire1"))
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+            GameObject bulletToDestroy = Instantiate(bullet, transform.position, transform.rotation);
+            Destroy(bulletToDestroy, 2.5f);
         }
-        
+      
     }
 }

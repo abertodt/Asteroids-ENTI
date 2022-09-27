@@ -9,8 +9,8 @@ public class AsteroidMovement : MonoBehaviour
     [SerializeField] private List<Sprite> spriteList;
     [SerializeField] private float min_speed;
     [SerializeField] private float max_speed;
-    private float x;
-    private float y;
+    private float x = 0;
+    private float y = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +20,14 @@ public class AsteroidMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        do
+        while(x == 0 && y == 0)
         {
             x = Random.Range(-1, 1);
             y = Random.Range(-1, 1);
-        } while (x != 0 && y != 0);
-        
+        }
+
         Vector2 direction = new Vector2(x, y);
+
         float speed = Random.Range(min_speed, max_speed);
         rigidBody.AddForce(direction * speed * Time.deltaTime);
 
