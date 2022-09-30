@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movement_speed;
     [SerializeField] private float rotation_speed;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject deathParticles;
     private float vertical;
     private float horizontal;
 
@@ -16,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        movement_speed = 40;
+        movement_speed = 20;
         rotation_speed = 100;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -47,5 +48,12 @@ public class PlayerMovement : MonoBehaviour
             Destroy(bulletToDestroy, 2.5f);
         }
       
+    }
+
+    public void Die()
+    {
+        GameManager.instance.lifes--;
+        GameObject particles = Instantiate(deathParticles, transform.position, transform.rotation);
+        Destroy(particles, 2f);
     }
 }

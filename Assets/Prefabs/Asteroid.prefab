@@ -172,4 +172,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86bd0441c5bb3264c928a01f4c4ebbfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  base_asteroid: {fileID: 5610956087900024389}
+  spawner: {fileID: 0}

@@ -123,6 +123,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &508893891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 508893893}
+  - component: {fileID: 508893892}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &508893892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508893891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867068e0c54ec194cb5c6f63fc56483f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifes: 3
+  points: 0
+--- !u!4 &508893893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508893891}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.47071952, y: -0.043783944, z: 0.029126776}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,9 +267,10 @@ GameObject:
   - component: {fileID: 697210584}
   - component: {fileID: 697210585}
   - component: {fileID: 697210586}
+  - component: {fileID: 697210587}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,7 +356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697210580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.074, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -331,6 +378,7 @@ MonoBehaviour:
   movement_speed: 2
   rotation_speed: 2
   bullet: {fileID: 2623099147490384506, guid: 75309c15550f8984699646b1e4840101, type: 3}
+  deathParticles: {fileID: 4540404480752269563, guid: 7d69774bb58c54e4fbb4c1b16071b49f, type: 3}
 --- !u!95 &697210585
 Animator:
   serializedVersion: 4
@@ -365,6 +413,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vertical: 0
   horizontal: 0
+--- !u!58 &697210587
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697210580}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.055452228, y: 0.036968112}
+  serializedVersion: 2
+  m_Radius: 0.24122298
 --- !u!1 &2014087437
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce08058fdffdbc4bb60e4e07ddeefcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  asteroids_alive: 0
   asteroid: {fileID: 5610956087900024389, guid: 87f0c501aaf5042408bb9f048d659880, type: 3}
   min_asteroids: 0
   max_asteroids: 0
