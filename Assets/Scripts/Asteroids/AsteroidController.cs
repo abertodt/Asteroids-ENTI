@@ -18,6 +18,7 @@ public class AsteroidController : MonoBehaviour
             CreateSplit(gameObject);
             CreateSplit(gameObject);
             Destroy(gameObject);
+            GameManager.instance.points = GameManager.instance.points + 100;
         }
 
         spawner.asteroids_alive--;

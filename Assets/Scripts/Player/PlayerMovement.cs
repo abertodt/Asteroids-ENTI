@@ -55,5 +55,15 @@ public class PlayerMovement : MonoBehaviour
         GameManager.instance.lifes--;
         GameObject particles = Instantiate(deathParticles, transform.position, transform.rotation);
         Destroy(particles, 2f);
+
+        if(GameManager.instance.lifes > 0)
+        {
+            transform.position = new Vector3(0, 0);
+            rb.velocity = new Vector3(0, 0);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
