@@ -4,20 +4,20 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    [SerializeField] private Rigidbody2D rigidBody;
-    [SerializeField] private float speed = 200f;
-    private string collisionTag = "Destroyable";
+    [SerializeField] private Rigidbody2D _rigidBody;
+    private float _speed = 200f;
+    private string _collisionTag = "Destroyable";
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
-        rigidBody.AddForce(transform.up * speed);
+        _rigidBody = GetComponent<Rigidbody2D>();
+        _rigidBody.AddForce(transform.up * _speed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == collisionTag)
+        if(collision.tag == _collisionTag)
         {
             collision.GetComponent<AsteroidController>().Die();
             Destroy(gameObject);

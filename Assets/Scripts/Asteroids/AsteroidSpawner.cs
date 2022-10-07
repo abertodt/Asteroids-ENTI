@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
-    public int asteroids_alive;
-    [SerializeField] private GameObject asteroid;
-    [SerializeField] private int min_asteroids, max_asteroids;
-    private float max_x = 9;
-    private float max_y = 5;
+    [SerializeField] private GameObject _asteroid;
+    private int _minAsteroids, _maxAsteroids;
+    private float _maxX = 9;
+    private float _maxY = 5;
+    public int asteroidsAlive;
 
     // Start is called before the first frame update
     void Start()
@@ -18,25 +18,29 @@ public class AsteroidSpawner : MonoBehaviour
 
     private void Update()
     {
-        if(asteroids_alive <= 0)
+        if(asteroidsAlive <= 0)
         {
-            asteroids_alive = 0;
+            asteroidsAlive = 0;
             GenerateAsteroids();
         }
     }
 
     private void GenerateAsteroids()
     {
-        min_asteroids = 2;
-        max_asteroids = 10;
+        _minAsteroids = 2;
+        _maxAsteroids = 10;
 
-        int asteroids_number = Random.Range(min_asteroids, max_asteroids);
+        int asteroids_number = Random.Range(_minAsteroids, _maxAsteroids);
 
         for (int i = 0; i < asteroids_number; i++)
         {
-            Vector3 position = new Vector3(Random.Range(-max_x, max_x), Random.Range(-max_y, max_y));
-            GameObject asteroide = Instantiate(asteroid, position, Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360))));
-            asteroide.GetComponent<AsteroidController>().spawner = this;
+            Vector3 position = new Vector3(Random.Range(-_maxX, _maxX), Random.Range(-_maxY, _maxY));
+
+            if(Vector3.Distance(position, new Vector3(0,0,0)) > 3)
+            {
+                GameObject asteroide = Instantiate(_asteroid, position, Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360))));
+                asteroide.GetComponent<AsteroidController>().spawner = this;
+            }     
         }
     }
 }

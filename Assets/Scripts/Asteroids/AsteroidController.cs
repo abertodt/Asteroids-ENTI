@@ -9,7 +9,7 @@ public class AsteroidController : MonoBehaviour
 
     private void Start()
     {
-        spawner.asteroids_alive++;
+        spawner.asteroidsAlive++;
     }
 
     public void Die()
@@ -21,7 +21,7 @@ public class AsteroidController : MonoBehaviour
             GameManager.instance.points = GameManager.instance.points + 100;
         }
 
-        spawner.asteroids_alive--;
+        spawner.asteroidsAlive--;
         Destroy(gameObject);
     }
 
