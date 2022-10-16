@@ -15,7 +15,7 @@ public class EnemyShipSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_gameManager.points >= 0 && GameObject.FindGameObjectWithTag("Enemy") == null)
+        if(_gameManager.points >= 1000 && GameObject.FindGameObjectWithTag("Enemy") == null)
         {
             _timeToRespawn -= Time.deltaTime;
             Debug.Log(_timeToRespawn);
