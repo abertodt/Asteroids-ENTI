@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Timer _timer;
     [SerializeField] private GameObject _player;
     public static GameManager instance;
+    private GameObject[] _asteroids;
+    [SerializeField] private AsteroidSpawner _spawner;
+    private GameObject _enemyShip;
 
     public int lifes = 3;
     public int points = 0;
@@ -25,7 +28,13 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        _asteroids = GameObject.FindGameObjectsWithTag("Destroyable");
+        foreach (GameObject asteroid in _asteroids) Destroy(asteroid);
+        _spawner.AsteroidsAlive = 0;
+        _enemyShip = GameObject.FindGameObjectWithTag("Enemy");
+        Destroy(_enemyShip);
         SpawnPlayer();
+        _game.SetActive(true);
         _timer.StartTimer();
         this.lifes = 3;
         this.points = 0;
@@ -36,6 +45,7 @@ public class GameManager : MonoBehaviour
         if(this.lifes == 0)
         {
             _timer.StopTimer();
+            _game.SetActive(false);
         }
     }
 

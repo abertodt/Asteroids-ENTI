@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
     [SerializeField] private Rigidbody2D _rigidBody;
     private float _speed = 200f;
     private string _collisionTag = "Destroyable";
@@ -17,7 +16,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == _collisionTag)
+        if(collision.tag == _collisionTag && gameObject.tag == "Bullet")
         {
             collision.GetComponent<AsteroidController>().Die();
             Destroy(gameObject);

@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _rotationSpeed;
-    [SerializeField] private GameObject _bulltet;
+    [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _deathParticles;
     [SerializeField] private Rigidbody2D _rigidBody;
     [SerializeField] private Animator _animator;
@@ -42,8 +42,16 @@ public class PlayerMovement : MonoBehaviour
         
         if (Input.GetButtonDown("Fire1"))
         {
-            GameObject bulletToDestroy = Instantiate(_bulltet, transform.position, transform.rotation);
+            GameObject bulletToDestroy = Instantiate(_bullet, transform.position, transform.rotation);
             Destroy(bulletToDestroy, 2.5f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "EnemyBullet" || collision.tag == "Enemy")
+        {
+            Die();
         }
     }
 

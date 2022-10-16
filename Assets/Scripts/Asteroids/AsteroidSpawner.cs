@@ -8,7 +8,7 @@ public class AsteroidSpawner : MonoBehaviour
     private int _minAsteroids, _maxAsteroids;
     private float _maxX = 9;
     private float _maxY = 5;
-    public int asteroidsAlive;
+    public int AsteroidsAlive;
 
     // Start is called before the first frame update
     void Start()
@@ -18,9 +18,9 @@ public class AsteroidSpawner : MonoBehaviour
 
     private void Update()
     {
-        if(asteroidsAlive <= 0)
+        if(AsteroidsAlive <= 0)
         {
-            asteroidsAlive = 0;
+            AsteroidsAlive = 0; 
             GenerateAsteroids();
         }
     }
@@ -43,4 +43,6 @@ public class AsteroidSpawner : MonoBehaviour
             }     
         }
     }
+
+
 }
