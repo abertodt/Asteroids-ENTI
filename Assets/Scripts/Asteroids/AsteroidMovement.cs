@@ -27,6 +27,7 @@ public class AsteroidMovement : MonoBehaviour
         }
 
         Vector2 direction = new Vector2(_x, _y);
+        
 
         float speed = Random.Range(_minSpeed, _maxSpeed);
         _rigidBody.AddForce(direction * speed * Time.deltaTime);

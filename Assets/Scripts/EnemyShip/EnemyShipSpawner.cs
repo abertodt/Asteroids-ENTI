@@ -6,19 +6,16 @@ public class EnemyShipSpawner : MonoBehaviour
 {
     private float[] _posibleX =  {10, -10};
     private Vector3 _spawnPoint;
-    [SerializeField] private GameManager _gameManager;
     [SerializeField] private GameObject _enemyShip;
     private float _randomX;
-
     private float _timeToRespawn = 60f;
 
     // Update is called once per frame
     void Update()
     {
-        if(_gameManager.points >= 1000 && GameObject.FindGameObjectWithTag("Enemy") == null)
+        if(GameManager.instance.points >= 1000 && GameObject.FindGameObjectWithTag("Enemy") == null)
         {
             _timeToRespawn -= Time.deltaTime;
-            Debug.Log(_timeToRespawn);
         }
 
         if (_timeToRespawn <= 0 && GameObject.FindGameObjectWithTag("Enemy") == null )
