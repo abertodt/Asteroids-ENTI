@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AsteroidSpawner _spawner;
     private GameObject _enemyShip;
     private GameObject _healthPack;
+    private GameObject[] _enemyBullets;
 
     public int lifes = 3;
     public int points = 0;
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour
         _spawner.AsteroidsAlive = 0;
         _enemyShip = GameObject.FindGameObjectWithTag("Enemy");
         _healthPack = GameObject.FindGameObjectWithTag("HealthPack");
+        _enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+        foreach(GameObject enemyBullet in _enemyBullets) Destroy(enemyBullet);
         Destroy(_enemyShip);
         Destroy(_healthPack);
         SpawnPlayer();

@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098382132423815214}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -173,6 +173,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidBody: {fileID: 1098382132423815215}
-  _animator: {fileID: 1098382132423815203}
   _deathParticles: {fileID: 4540404480752269563, guid: 7d69774bb58c54e4fbb4c1b16071b49f, type: 3}
   _bullet: {fileID: 2623099147490384506, guid: 32c17e59c1ca7494791ca38d8d5751f1, type: 3}

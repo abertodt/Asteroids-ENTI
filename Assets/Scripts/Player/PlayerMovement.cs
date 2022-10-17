@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _rotationSpeed;
-    [SerializeField] private GameObject _bullet;
+    private GameObject _bullet;
     [SerializeField] private GameObject _deathParticles;
     [SerializeField] private Rigidbody2D _rigidBody;
     [SerializeField] private Animator _animator;
@@ -40,10 +40,17 @@ public class PlayerMovement : MonoBehaviour
        
         transform.eulerAngles += new Vector3(0, 0, -_horizontal) * Time.deltaTime * _rotationSpeed;
         
+
         if (Input.GetButtonDown("Fire1"))
         {
-            GameObject bulletToDestroy = Instantiate(_bullet, transform.position, transform.rotation);
-            Destroy(bulletToDestroy, 2.5f);
+            _bullet = ObjectPool.Instance.GetPooledObject();
+
+            if (_bullet != null)
+            {
+                _bullet.transform.position = transform.position;
+                _bullet.transform.rotation = transform.rotation;
+                _bullet.SetActive(true);
+            }
         }
     }
 
